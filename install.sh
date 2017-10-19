@@ -1,19 +1,32 @@
 #!/bin/bash
 
 #List contains config file to copy and rename
-configfilelist=( bashrc bash_profile vimrc )
+configFileList=( bashrc bash_profile vimrc )
+configDirectoryList= ( vim )
 
 #Install config file
 echo 'Installing config file'
 
-#Copy and rename file in array
+#Create symbolic link to file in array
 index=0
-while [ $index -lt ${#configfilelist[@]} ]
+currentDir=$(pwd)"/"
+while [ $index -lt ${#configFileList[@]} ]
 do
-  if [ -e ${configfilelist[index]} ]
+  if [ -e ${configFileList[index]} ]
   then
-     echo 'Copy '${configfilelist[index]}
-     cp ${configfilelist[index]} ~/.${configfilelist[index]} 
+     echo 'Copy '${configFileList[index]}
+     ln -s $currentDir${configFileList[index]} ~/.${configFileList[index]}
+  fi
+  ((index++))
+done
+
+#Create symbolic link to config folder register in array
+while [ $index -lt ${#configDirectoryList[@]} ]
+do
+  if [ -d ${configDirectoryList[index]} ]
+  then
+     echo 'Copy '${configDirectoryList[index]}
+     ln -s $currentDir${configDirectoryList[index]} ~/.${configDirectoryList[index]}
   fi
   ((index++))
 done
