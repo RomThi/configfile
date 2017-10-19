@@ -1,5 +1,11 @@
 set nocompatible
 
+"Execute pathogen for plugin
+execute pathogen#infect()
+
+"Auto indent file
+filetype plugin indent on
+
 "Enable the colorscheme
 syntax on
 
