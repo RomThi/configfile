@@ -24,3 +24,7 @@ set showmatch
 
 "Show line number
 set number
+
+"Config NERDTree
+"Open and close NERDTree with CTRL+n
+map <C-n> :NERDTreeToggle<CR>
