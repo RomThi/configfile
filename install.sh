@@ -2,7 +2,7 @@
 
 #List contains config file to copy and rename
 configFileList=( bashrc bash_profile vimrc )
-configDirectoryList= ( vim )
+configDirectoryList= ( )
 
 #Install config file
 echo 'Installing config file'
@@ -30,4 +30,9 @@ do
   fi
   ((index++))
 done
+
+#Install Pathogen for vim
+mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+        curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+
 echo 'Done'
