@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #List contains config file to copy and rename
-configFileList=( bashrc bash_profile vimrc )
+configFileList=( bashrc bash_profile vimrc inputrc )
 configDirectoryList= ( )
 
 #Install config file
